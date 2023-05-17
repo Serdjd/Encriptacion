@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 public class Encriptador {
-    public StringBuilder encripter(String text,String mecanismo){
+    public static StringBuilder encripter(String text,String mecanismo){
         StringBuilder nuevotxt = new StringBuilder();
         ArrayList<Integer> mecanis = new ArrayList<>();
         int i;

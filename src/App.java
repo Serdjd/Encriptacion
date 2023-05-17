@@ -6,8 +6,8 @@ public class App {
    public static void main(String[] args) throws Exception {
         Scanner leer = new Scanner(System.in);
         System.out.print("Dirección del fichero: ");
-        String texto = leer.nextLine();
-        File fichero = new File(texto);
+        String direccion = leer.nextLine();
+        File fichero = new File(direccion);
         
         if(!fichero.exists()){
             System.out.println("El archivo no existe");
@@ -16,6 +16,9 @@ public class App {
         FileReader read = new FileReader(fichero);
         FileWriter writer = new FileWriter(fichero,true);
         Scanner leer_fichero = new Scanner(fichero);
-        
+        leer_fichero.useDelimiter("\\Z");
+        System.out.print("Metodo de encriptación: ");
+        StringBuilder texto = new StringBuilder();
+        texto = Encriptador.encripter(leer_fichero.nextLine(),leer.nextLine());
     }
 }
