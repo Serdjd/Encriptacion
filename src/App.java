@@ -1,5 +1,6 @@
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.io.PrintWriter;
 import java.util.Scanner;
 import java.io.File;
 public class App {
@@ -16,9 +17,17 @@ public class App {
         FileReader read = new FileReader(fichero);
         FileWriter writer = new FileWriter(fichero,true);
         Scanner leer_fichero = new Scanner(fichero);
+        StringBuilder texto = new StringBuilder();
         leer_fichero.useDelimiter("\\Z");
         System.out.print("Metodo de encriptación: ");
-        StringBuilder texto = new StringBuilder();
-        texto = Encriptador.encripter(leer_fichero.nextLine(),leer.nextLine());
+        String metodo = leer.nextLine();
+        String text = leer_fichero.nextLine();
+        texto = Encriptador.encripter(text,metodo);
+        System.out.println(texto);
+        PrintWriter writer2 = new PrintWriter(fichero);
+        writer2.println(texto);
+        writer.close();
+        read.close();
+        writer2.close();
     }
 }
