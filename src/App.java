@@ -19,15 +19,31 @@ public class App {
         Scanner leer_fichero = new Scanner(fichero);
         StringBuilder texto = new StringBuilder();
         leer_fichero.useDelimiter("\\Z");
-        System.out.print("Metodo de encriptación: ");
-        String metodo = leer.nextLine();
-        String text = leer_fichero.nextLine();
-        texto = Encriptador.encripter(text,metodo);
-        System.out.println(texto);
-        PrintWriter writer2 = new PrintWriter(fichero);
-        writer2.println(texto);
-        writer.close();
-        read.close();
-        writer2.close();
+        System.out.println("Encriptar --> 1\nDescencriptador --> 2");
+
+        if(leer.nextInt()==1){
+            System.out.print("Metodo de encriptación: ");
+            String metodo = leer.nextLine();
+            String text = leer_fichero.nextLine();
+            texto = Encriptador.encripter(text,metodo);
+            System.out.println(texto);
+            PrintWriter writer2 = new PrintWriter(fichero);
+            writer2.println(texto);
+            writer.close();
+            read.close();
+            writer2.close();
+        }
+        else{
+            System.out.println("Metodo de desencriptación: ");
+            String metodo = leer.nextLine();
+            String text = leer_fichero.nextLine();
+            texto = Desencriptador.desencripter(text,metodo);
+            System.out.println(texto);
+            PrintWriter writer2 = new PrintWriter(fichero);
+            writer2.println(texto);
+            writer.close();
+            read.close();
+            writer2.close();
+        }
     }
 }
